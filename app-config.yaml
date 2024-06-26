@@ -116,5 +116,3 @@ catalog:
       target: ${ENTITY_URL}
       rules:
         - allow: [Entity]
-open-dora:
-  apiBaseUrl: ${OPENDORA_API_BASE_URL}

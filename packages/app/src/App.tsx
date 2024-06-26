@@ -37,7 +37,6 @@ import { AppRouter, FlatRoutes, FeatureFlagged } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
-import { OpenDoraPluginPage } from '@devoteam-nl/open-dora-backstage-plugin';
 import { HomepageCompositionRoot, VisitListener } from '@backstage/plugin-home';
 import { HomePage } from './components/home/HomePage';
 import { CustomizableHomePage } from './components/home/CustomizableHomePage';
@@ -133,7 +132,6 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
-    <Route path="/open-dora" element={<OpenDoraPluginPage />} />
   </FlatRoutes>
 );
 

@@ -59,6 +59,17 @@ import {
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 
+import {
+  isGitlabAvailable,
+  EntityGitlabLanguageCard,
+  EntityGitlabMergeRequestsTable,
+  EntityGitlabMergeRequestStatsCard,
+  EntityGitlabPeopleCard,
+  EntityGitlabPipelinesTable,
+  EntityGitlabReadmeCard,
+  EntityGitlabReleasesCard,
+} from '@immobiliarelabs/backstage-plugin-gitlab';
+
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -71,13 +82,15 @@ const cicdContent = (
   // This is an example of how you can implement your company's logic in entity page.
   // You can for example enforce that all components of type 'service' should use GitHubActions
   <EntitySwitch>
-    
-      {/* Here you can add support for different CI/CD services, for example
+    {/* Here you can add support for different CI/CD services, for example
       using @backstage-community/plugin-github-actions as follows: */}
-      <EntitySwitch.Case if={isGithubActionsAvailable}>
-        <EntityGithubActionsContent />
-      </EntitySwitch.Case>
-    
+    <EntitySwitch.Case if={isGithubActionsAvailable}>
+      <EntityGithubActionsContent />
+    </EntitySwitch.Case>
+
+    <EntitySwitch.Case if={isGitlabAvailable}>
+      <EntityGitlabPipelinesTable />
+    </EntitySwitch.Case>
 
     <EntitySwitch.Case>
       <EmptyState
@@ -135,6 +148,29 @@ const overviewContent = (
     <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
+
+    <EntitySwitch>
+      <EntitySwitch.Case if={isGitlabAvailable}>
+        <Grid item md={12}>
+          <EntityGitlabReadmeCard />
+        </Grid>
+        <Grid item sm={12} md={3} lg={3}>
+          <EntityGitlabPeopleCard />
+        </Grid>
+        <Grid item sm={12} md={3} lg={3}>
+          <EntityGitlabLanguageCard />
+        </Grid>
+        <Grid item sm={12} md={3} lg={3}>
+          <EntityGitlabMergeRequestStatsCard />
+        </Grid>
+        <Grid item sm={12} md={3} lg={3}>
+          <EntityGitlabReleasesCard />
+        </Grid>
+        <Grid item md={12}>
+          <EntityGitlabMergeRequestsTable />
+        </Grid>
+      </EntitySwitch.Case>
+    </EntitySwitch>
 
     <Grid item md={4} xs={12}>
       <EntityLinksCard />

@@ -1,4 +1,8 @@
 import { createBackend } from '@backstage/backend-defaults';
+import {
+  gitlabPlugin,
+  catalogPluginGitlabFillerProcessorModule,
+} from '@immobiliarelabs/backstage-plugin-gitlab-backend';
 
 const backend = createBackend();
 
@@ -37,5 +41,9 @@ backend.add(import('@backstage/plugin-search-backend-module-catalog/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-techdocs/alpha'));
 
 backend.add(import('@backstage-community/plugin-todo-backend'));
+
+// gitlab plugin
+backend.add(gitlabPlugin);
+backend.add(catalogPluginGitlabFillerProcessorModule);
 
 backend.start();
