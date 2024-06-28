@@ -9,9 +9,8 @@ backend:
   # Used for enabling authentication, secret is shared by all backend plugins
   # See https://backstage.io/docs/auth/service-to-service-auth for
   # information on the format
-  # auth:
-  #   keys:
-  #     - secret: ${BACKEND_SECRET}
+  auth:
+    dangerouslyDisableDefaultAuthPolicy: true
   baseUrl: http://localhost:7007
   listen:
     port: 7007
@@ -46,12 +45,12 @@ integrations:
       apiBaseUrl: https://${GITLAB_HOST}/api/v4
       baseUrl: https://${GITLAB_HOST}
 proxy:
-  ### Example for how to add a proxy endpoint for the frontend.
-  ### A typical reason to do this is to handle HTTPS and CORS for internal services.
-  # endpoints:
-  #   '/test':
-  #     target: 'https://example.com'
-  #     changeOrigin: true
+  endpoints:
+    "/prometheus/api":
+      # url to the api and path of your hosted prometheus instance
+      target: ${PROMETHEUS_URL}
+      changeOrigin: true
+      secure: false
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
 # Note: After experimenting with basic setup, use CI/CD to generate docs
@@ -132,3 +131,21 @@ kubernetes:
           skipMetricsLookup: true
           serviceAccountToken: ${K8S_DEVTEST_TOKEN}
           caData: ${K8S_DEVTEST_CA}
+
+s3:
+  bucketLocatorMethods:
+    - type: config
+      platforms:
+        - endpoint: https://os.viettelcloud.vn
+          name: ViettelCloud
+          region: ${S3_REGION}
+          accessKeyId: ${S3_ACCESS_KEY}
+          secretAccessKey: ${S3_SECRET_KEY}
+  allowedBuckets:
+    - platform: ViettelCloud
+      buckets:
+        - kusion
+        - harbor
+  bucketRefreshSchedule:
+    frequency: { minutes: 30 }
+    timeout: { minutes: 1 }
