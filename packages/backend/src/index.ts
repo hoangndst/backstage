@@ -46,4 +46,7 @@ backend.add(import('@backstage-community/plugin-todo-backend'));
 backend.add(gitlabPlugin);
 backend.add(catalogPluginGitlabFillerProcessorModule);
 
+// kubernetes plugin 
+backend.add(import('@backstage/plugin-kubernetes-backend/alpha'));
+
 backend.start();

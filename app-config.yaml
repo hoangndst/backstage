@@ -118,3 +118,17 @@ catalog:
       target: ${ENTITY_URL}
       rules:
         - allow: [Entity]
+
+kubernetes:
+  serviceLocatorMethod:
+    type: 'multiTenant'
+  clusterLocatorMethods:
+    - type: 'config'
+      clusters:
+        - url: ${K8S_DEVTEST_URL}
+          name: devtest
+          authProvider: 'serviceAccount'
+          skipTLSVerify: true
+          skipMetricsLookup: true
+          serviceAccountToken: ${K8S_DEVTEST_TOKEN}
+          caData: ${K8S_DEVTEST_CA}
