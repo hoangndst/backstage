@@ -108,10 +108,12 @@ catalog:
   #   entityFilename: catalog-info.yaml
   #   pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, API, Resource, Location]
+    - allow: [Component, Template, System, API, Resource, Location]
   locations:
     - type: url
       target: ${TEMPLATE_URL}
+      rules:
+        - allow: [Template, Location]
     - type: url
       target: ${ENTITY_URL}
       rules:
