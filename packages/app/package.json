@@ -49,6 +49,7 @@
     "@material-ui/icons": "^4.9.1",
     "@parsifal-m/plugin-dev-quotes-homepage": "^3.0.5",
     "@redhat-developer/red-hat-developer-hub-theme": "^0.0.59",
+    "@roadiehq/backstage-plugin-prometheus": "^2.9.0",
     "history": "^5.0.0",
     "react": "^18.0.2",
     "react-dom": "^18.0.2",

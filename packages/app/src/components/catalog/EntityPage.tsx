@@ -71,6 +71,11 @@ import {
 } from '@immobiliarelabs/backstage-plugin-gitlab';
 
 import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
+import {
+  EntityPrometheusContent,
+  EntityPrometheusAlertCard,
+  EntityPrometheusGraphCard,
+} from '@roadiehq/backstage-plugin-prometheus';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -151,6 +156,13 @@ const overviewContent = (
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
 
+    <Grid item md={8}>
+      <EntityPrometheusAlertCard />
+    </Grid>
+    <Grid item md={6}>
+      <EntityPrometheusGraphCard />
+    </Grid>
+
     <EntitySwitch>
       <EntitySwitch.Case if={isGitlabAvailable}>
         <Grid item md={12}>
@@ -193,11 +205,13 @@ const serviceEntityPage = (
       {cicdContent}
     </EntityLayout.Route>
 
-
     <EntityLayout.Route path="/kubernetes" title="Kubernetes">
       <EntityKubernetesContent refreshIntervalMs={30000} />
     </EntityLayout.Route>
 
+    <EntityLayout.Route path="/prometheus" title="Prometheus">
+      <EntityPrometheusContent />
+    </EntityLayout.Route>
 
     <EntityLayout.Route path="/api" title="API">
       <Grid container spacing={3} alignItems="stretch">
