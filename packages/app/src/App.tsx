@@ -41,6 +41,9 @@ import { HomepageCompositionRoot, VisitListener } from '@backstage/plugin-home';
 import { HomePage } from './components/home/HomePage';
 import { CustomizableHomePage } from './components/home/CustomizableHomePage';
 import { getThemes } from '@redhat-developer/red-hat-developer-hub-theme';
+import { S3ViewerPage } from '@spreadshirt/backstage-plugin-s3-viewer';
+import { QetaPage } from '@drodil/backstage-plugin-qeta';
+// import { ChatGPTFrontendPage } from '@enfuse/chatgpt-plugin-frontend';
 
 const app = createApp({
   apis,
@@ -132,6 +135,9 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route path="/s3-viewer" element={<S3ViewerPage />} />
+    <Route path="/qeta" element={<QetaPage title="Questions" />} />
+    {/* <Route path="/chatgpt" element={<ChatGPTFrontendPage />} /> */}
   </FlatRoutes>
 );
 

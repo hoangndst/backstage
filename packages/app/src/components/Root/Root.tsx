@@ -27,6 +27,8 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import CategoryIcon from '@material-ui/icons/Category';
+import { SiAmazons3 } from 'react-icons/si';
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -72,6 +74,8 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
         <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
         {/* End global nav */}
+        <SidebarItem icon={SiAmazons3} to="s3-viewer" text="S3 Viewer" />
+        <SidebarItem icon={LiveHelpIcon} to="qeta" text="Q&A" />
         <SidebarDivider />
         <SidebarScrollWrapper>
           <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
