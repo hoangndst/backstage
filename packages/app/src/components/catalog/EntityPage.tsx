@@ -76,6 +76,7 @@ import {
   EntityPrometheusAlertCard,
   EntityPrometheusGraphCard,
 } from '@roadiehq/backstage-plugin-prometheus';
+import { QetaContent } from '../question/Question';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -212,6 +213,9 @@ const serviceEntityPage = (
     <EntityLayout.Route path="/prometheus" title="Prometheus">
       <EntityPrometheusContent />
     </EntityLayout.Route>
+    <EntityLayout.Route path="/qeta" title="Q&A">
+      <QetaContent />
+    </EntityLayout.Route>
 
     <EntityLayout.Route path="/api" title="API">
       <Grid container spacing={3} alignItems="stretch">
@@ -223,7 +227,6 @@ const serviceEntityPage = (
         </Grid>
       </Grid>
     </EntityLayout.Route>
-
     <EntityLayout.Route path="/dependencies" title="Dependencies">
       <Grid container spacing={3} alignItems="stretch">
         <Grid item md={6}>
@@ -234,7 +237,6 @@ const serviceEntityPage = (
         </Grid>
       </Grid>
     </EntityLayout.Route>
-
     <EntityLayout.Route path="/docs" title="Docs">
       {techdocsContent}
     </EntityLayout.Route>
@@ -249,6 +251,10 @@ const websiteEntityPage = (
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/qeta" title="Q&A">
+      <QetaContent />
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/dependencies" title="Dependencies">

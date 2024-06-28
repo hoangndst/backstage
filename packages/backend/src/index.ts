@@ -46,7 +46,11 @@ backend.add(import('@backstage-community/plugin-todo-backend'));
 backend.add(gitlabPlugin);
 backend.add(catalogPluginGitlabFillerProcessorModule);
 
-// kubernetes plugin 
+// kubernetes plugin
 backend.add(import('@backstage/plugin-kubernetes-backend/alpha'));
+// s3 plugin
+backend.add(import('@spreadshirt/backstage-plugin-s3-viewer-backend'));
+
+backend.add(import('@drodil/backstage-plugin-qeta-backend'));
 
 backend.start();
