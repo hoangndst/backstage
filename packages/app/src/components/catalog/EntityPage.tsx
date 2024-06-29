@@ -157,13 +157,6 @@ const overviewContent = (
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
 
-    <Grid item md={8}>
-      <EntityPrometheusAlertCard />
-    </Grid>
-    <Grid item md={6}>
-      <EntityPrometheusGraphCard />
-    </Grid>
-
     <EntitySwitch>
       <EntitySwitch.Case if={isGitlabAvailable}>
         <Grid item md={12}>
