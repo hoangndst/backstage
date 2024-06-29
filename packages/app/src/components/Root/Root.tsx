@@ -29,6 +29,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import CategoryIcon from '@material-ui/icons/Category';
 import { SiAmazons3 } from 'react-icons/si';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
+import { Administration } from '@janus-idp/backstage-plugin-rbac';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -79,6 +80,7 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarDivider />
         <SidebarScrollWrapper>
           <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
+          <Administration />
         </SidebarScrollWrapper>
       </SidebarGroup>
       <SidebarSpace />

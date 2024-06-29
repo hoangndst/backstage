@@ -43,7 +43,7 @@ import { CustomizableHomePage } from './components/home/CustomizableHomePage';
 import { getThemes } from '@redhat-developer/red-hat-developer-hub-theme';
 import { S3ViewerPage } from '@spreadshirt/backstage-plugin-s3-viewer';
 import { QetaPage } from '@drodil/backstage-plugin-qeta';
-// import { ChatGPTFrontendPage } from '@enfuse/chatgpt-plugin-frontend';
+import { RbacPage } from '@janus-idp/backstage-plugin-rbac';
 
 const app = createApp({
   apis,
@@ -137,7 +137,7 @@ const routes = (
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
     <Route path="/s3-viewer" element={<S3ViewerPage />} />
     <Route path="/qeta" element={<QetaPage title="Questions" />} />
-    {/* <Route path="/chatgpt" element={<ChatGPTFrontendPage />} /> */}
+    <Route path="/rbac" element={<RbacPage />} />;
   </FlatRoutes>
 );
 

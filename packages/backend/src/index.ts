@@ -28,12 +28,6 @@ backend.add(import('@backstage/plugin-catalog-backend-module-gitlab-org'));
 
 backend.add(import('@backstage/plugin-scaffolder-backend-module-gitlab'));
 
-// permission plugin
-backend.add(import('@backstage/plugin-permission-backend/alpha'));
-backend.add(
-  import('@backstage/plugin-permission-backend-module-allow-all-policy'),
-);
-
 // search plugin
 backend.add(import('@backstage/plugin-search-backend/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-pg/alpha'));
@@ -52,5 +46,8 @@ backend.add(import('@backstage/plugin-kubernetes-backend/alpha'));
 backend.add(import('@spreadshirt/backstage-plugin-s3-viewer-backend'));
 
 backend.add(import('@drodil/backstage-plugin-qeta-backend'));
+
+// rbac plugin
+backend.add(import('@janus-idp/backstage-plugin-rbac-backend'));
 
 backend.start();

@@ -49,6 +49,7 @@
     "@drodil/backstage-plugin-qeta-backend": "^2.4.2",
     "@enfuse/plugin-chatgpt-backend": "^1.1.1",
     "@immobiliarelabs/backstage-plugin-gitlab-backend": "^6.5.1",
+    "@janus-idp/backstage-plugin-rbac-backend": "^4.3.1",
     "@spreadshirt/backstage-plugin-s3-viewer-backend": "^0.9.2",
     "app": "link:../app",
     "better-sqlite3": "^9.0.0",

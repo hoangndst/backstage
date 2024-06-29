@@ -10,7 +10,9 @@ backend:
   # See https://backstage.io/docs/auth/service-to-service-auth for
   # information on the format
   auth:
-    dangerouslyDisableDefaultAuthPolicy: true
+    # key: x1tXmm40nfxOQM+sVbypFfaa3wUVL3ku
+
+    # dangerouslyDisableDefaultAuthPolicy: true
   baseUrl: http://localhost:7007
   listen:
     port: 7007
@@ -149,3 +151,16 @@ s3:
   bucketRefreshSchedule:
     frequency: { minutes: 30 }
     timeout: { minutes: 1 }
+
+permission:
+  enabled: true
+  rbac:
+    pluginsWithPermission:
+      - kubernetes
+      - catalog
+      - scaffolder
+    admin:
+      superUsers:
+        - name: user:default/hoangndst
+      users:
+        - name: user:default/hoangndst
