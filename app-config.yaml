@@ -86,10 +86,6 @@ auth:
         clientId: ${OIDC_CLIENT_ID}
         clientSecret: ${OIDC_CLIENT_SECRET}
         prompt: auto
-        signIn:
-          resolvers:
-            - resolver: emailLocalPartMatchingUserEntityName
-            - resolver: emailMatchingUserEntityProfileEmail
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
