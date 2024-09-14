@@ -30,6 +30,7 @@ import CategoryIcon from '@material-ui/icons/Category';
 import { SiAmazons3 } from 'react-icons/si';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import { Administration } from '@janus-idp/backstage-plugin-rbac';
+import { NotificationsSidebarItem } from '@backstage/plugin-notifications';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -78,6 +79,7 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarItem icon={SiAmazons3} to="s3-viewer" text="S3 Viewer" />
         <SidebarItem icon={LiveHelpIcon} to="qeta" text="Q&A" />
         <SidebarDivider />
+        <NotificationsSidebarItem />
         <SidebarScrollWrapper>
           <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
           <Administration />

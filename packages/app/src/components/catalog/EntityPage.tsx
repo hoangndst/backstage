@@ -71,11 +71,7 @@ import {
 } from '@immobiliarelabs/backstage-plugin-gitlab';
 
 import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
-import {
-  EntityPrometheusContent,
-  EntityPrometheusAlertCard,
-  EntityPrometheusGraphCard,
-} from '@roadiehq/backstage-plugin-prometheus';
+import { EntityPrometheusContent } from '@roadiehq/backstage-plugin-prometheus';
 import { QetaContent } from '../question/Question';
 
 const techdocsContent = (

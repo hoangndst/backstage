@@ -11,7 +11,6 @@ backend:
   # information on the format
   auth:
     # key: x1tXmm40nfxOQM+sVbypFfaa3wUVL3ku
-
     # dangerouslyDisableDefaultAuthPolicy: true
   baseUrl: http://localhost:7007
   listen:
@@ -40,7 +39,7 @@ backend:
     allow:
       - host: ${GITLAB_HOST}
 
-integrations: 
+integrations:
   gitlab:
     - host: ${GITLAB_HOST}
       token: ${GITLAB_TOKEN}
@@ -48,7 +47,7 @@ integrations:
       baseUrl: https://${GITLAB_HOST}
 proxy:
   endpoints:
-    "/prometheus/api":
+    '/prometheus/api':
       # url to the api and path of your hosted prometheus instance
       target: ${PROMETHEUS_URL}
       changeOrigin: true
@@ -70,6 +69,8 @@ techdocs:
 auth:
   environment: development
   # see https://backstage.io/docs/auth/ to learn about auth providers
+  session:
+    secret: ${SESSION_SECRET}
   providers:
     gitlab:
       development:
@@ -79,7 +80,16 @@ auth:
         signIn:
           resolvers:
             - resolver: usernameMatchingUserEntityName
-
+    oidc-auth-provider:
+      development:
+        metadataUrl: https://keycloak.idp.freeddns.org/realms/master/.well-known/openid-configuration
+        clientId: ${OIDC_CLIENT_ID}
+        clientSecret: ${OIDC_CLIENT_SECRET}
+        prompt: auto
+        signIn:
+          resolvers:
+            - resolver: emailLocalPartMatchingUserEntityName
+            - resolver: emailMatchingUserEntityProfileEmail
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -87,7 +97,7 @@ scaffolder:
   defaultAuthor:
     name: hoangndst
     email: hoangndst@gmail.com
-  defaultCommitMessage: "Initial commit"
+  defaultCommitMessage: 'Initial commit'
 
 catalog:
   providers:
@@ -153,7 +163,7 @@ s3:
     timeout: { minutes: 1 }
 
 permission:
-  enabled: true
+  enabled: false
   rbac:
     pluginsWithPermission:
       - kubernetes

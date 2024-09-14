@@ -16,6 +16,9 @@ backend.add(import('@backstage/plugin-techdocs-backend/alpha'));
 backend.add(import('@backstage/plugin-auth-backend'));
 backend.add(import('@backstage/plugin-auth-backend-module-guest-provider'));
 backend.add(import('@backstage/plugin-auth-backend-module-gitlab-provider'));
+backend.add(
+  import('@internal/backstage-plugin-auth-backend-module-oidc-provider'),
+);
 // See https://backstage.io/docs/auth/guest/provider
 
 // catalog plugin
@@ -49,5 +52,8 @@ backend.add(import('@drodil/backstage-plugin-qeta-backend'));
 
 // rbac plugin
 backend.add(import('@janus-idp/backstage-plugin-rbac-backend'));
+
+// notifications plugin
+backend.add(import('@backstage/plugin-notifications-backend'));
 
 backend.start();

@@ -21,7 +21,7 @@ import {
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 import { UserSettingsPage } from '@backstage/plugin-user-settings';
-import { apis } from './apis';
+import { apis, oidcAuthRef } from './apis';
 import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { gitlabAuthApiRef } from '@backstage/core-plugin-api';
@@ -44,6 +44,7 @@ import { getThemes } from '@redhat-developer/red-hat-developer-hub-theme';
 import { S3ViewerPage } from '@spreadshirt/backstage-plugin-s3-viewer';
 import { QetaPage } from '@drodil/backstage-plugin-qeta';
 import { RbacPage } from '@janus-idp/backstage-plugin-rbac';
+import { NotificationsPage } from '@backstage/plugin-notifications';
 
 const app = createApp({
   apis,
@@ -71,10 +72,10 @@ const app = createApp({
         providers={[
           'guest',
           {
-            id: 'gitlab-auth-provider',
-            title: 'GitLab',
-            message: 'Sign in using GitLab',
-            apiRef: gitlabAuthApiRef,
+            id: 'oidc-auth-provider',
+            title: 'OIDC',
+            message: 'Sign in using OIDC',
+            apiRef: oidcAuthRef,
           },
         ]}
       />
@@ -138,6 +139,7 @@ const routes = (
     <Route path="/s3-viewer" element={<S3ViewerPage />} />
     <Route path="/qeta" element={<QetaPage title="Questions" />} />
     <Route path="/rbac" element={<RbacPage />} />;
+    <Route path="/notifications" element={<NotificationsPage />} />
   </FlatRoutes>
 );
 
