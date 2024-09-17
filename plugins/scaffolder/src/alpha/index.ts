@@ -24,4 +24,4 @@ export {
 
 export { scaffolderTranslationRef } from '../translation';
 
-export * from './plugin';
+export { default } from './plugin';
