@@ -15,7 +15,8 @@
  */
 
 import React from 'react';
-import { createApp } from '@backstage/frontend-app-api';
+// eslint-disable-next-line @backstage/no-relative-monorepo-imports
+import { createApp } from '../../../frontend-defaults/src/createApp';
 import { screen } from '@testing-library/react';
 import { FrontendPlugin, createFrontendPlugin } from './createFrontendPlugin';
 import { JsonObject } from '@backstage/types';
