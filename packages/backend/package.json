@@ -51,6 +51,7 @@
     "@enfuse/plugin-chatgpt-backend": "^1.1.1",
     "@immobiliarelabs/backstage-plugin-gitlab-backend": "^6.6.0",
     "@internal/backstage-plugin-auth-backend-module-oidc-provider": "^0.1.0",
+    "@internal/backstage-plugin-catalog-backend-module-gitea": "^0.1.0",
     "@janus-idp/backstage-plugin-rbac-backend": "^4.10.4",
     "@roadiehq/scaffolder-backend-module-aws": "^2.4.25",
     "@spreadshirt/backstage-plugin-s3-viewer-backend": "^0.9.5",

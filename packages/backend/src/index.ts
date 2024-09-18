@@ -56,4 +56,5 @@ backend.add(import('@janus-idp/backstage-plugin-rbac-backend'));
 // notifications plugin
 backend.add(import('@backstage/plugin-notifications-backend'));
 
+backend.add(import('@internal/backstage-plugin-catalog-backend-module-gitea'));
 backend.start();

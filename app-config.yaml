@@ -159,7 +159,7 @@ s3:
     timeout: { minutes: 1 }
 
 permission:
-  enabled: false
+  enabled: true
   rbac:
     pluginsWithPermission:
       - kubernetes
